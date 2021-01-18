@@ -57,7 +57,7 @@ const Preview = () => {
       <CloseIcon onClick={closePreview} className="preview__close" />
       <RightToolbar />
       <img src={imgSrc} alt="" />
-      <Footer />
+      <Footer sendPost={sendPost} />
     </div>
   );
 };
