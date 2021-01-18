@@ -3,3 +3,7 @@
   justify-content: center;
   align-content: center;
 }
+.app {
+  background: yellow;
+  height: 100vh;
+}
