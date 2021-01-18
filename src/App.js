@@ -12,7 +12,9 @@ function App() {
             <Route path="/" exact>
               <WebcamCapture />
             </Route>
-            <Route path="/preview" component={Preview} />
+            <Route path="/preview" exact>
+              <Preview />
+            </Route>
           </Switch>
         </div>
       </BrowserRouter>

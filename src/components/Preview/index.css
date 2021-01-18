@@ -1,0 +1,10 @@
+.preview {
+  position: relative;
+}
+.preview__close {
+  top: 0;
+  left: 0;
+  color: black;
+  font-size: 18px;
+  transform: translate(50%, 50%);
+}
