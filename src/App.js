@@ -3,16 +3,20 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import WebcamCapture from "./components/WebcamCapture/WebcamCapture";
 import Preview from "./components/Preview/Preview.js";
+import Chats from "./components/Chats/Chats";
 function App() {
   return (
     <div className="app">
       <BrowserRouter>
         <div className="app_body">
           <Switch>
+            <Route path="/chats">
+              <Chats />
+            </Route>
             <Route path="/" exact>
               <WebcamCapture />
             </Route>
-            <Route path="/preview" exact>
+            <Route path="/preview">
               <Preview />
             </Route>
           </Switch>
