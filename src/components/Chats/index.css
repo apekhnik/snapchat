@@ -16,7 +16,11 @@
 }
 .chats__avatar {
   height: 25px !important;
+  cursor: pointer;
   width: 25px !important;
+}
+.chats__avatar:hover {
+  opacity: 0.8;
 }
 .chats__search {
   display: flex;
@@ -51,9 +55,15 @@
 .chats__posts::-webkit-scrollbar {
   display: none;
 }
-
+.chats__takePickIcon {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 /* CHAT ITEM */
 .chat {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -82,11 +92,19 @@
 .chat__info p {
   font-size: 9px;
 }
-
+.chat__readIcon {
+}
 /* VIEW */
 
 .view {
   width: 250px;
   height: 400px;
   margin-top: 100px;
+  position: relative;
+}
+.view__timer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
 }

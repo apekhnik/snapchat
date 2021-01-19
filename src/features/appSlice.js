@@ -13,9 +13,16 @@ export const appSlice = createSlice({
     resetImage: (state, action) => {
       state.selectedImage = "";
     },
+    login: (state, action) => {
+      state.user = action.payload;
+    },
+    logout: (state) => {
+      state.user = null;
+    },
   },
 });
 
-export const { selectImage, resetImage } = appSlice.actions;
+export const { selectImage, resetImage, login, logout } = appSlice.actions;
+export const getUser = (state) => state.app.user;
 export const getSelectedImage = (state) => state.app.selectedImage;
 export default appSlice.reducer;

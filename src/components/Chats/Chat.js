@@ -24,7 +24,9 @@ const Chat = ({ profilePic, username, read, imageUrl, timestamp, id }) => {
       <Avatar className="chat__avatar" src={profilePic} />
       <div className="chat__info">
         <h4>{username}</h4>
-        <p>Tap to view - {timeAgo}</p>
+        <p>
+          {read && "Tap to view "}- {timeAgo}
+        </p>
       </div>
       {!read && <StopRoundedIcon className="chat__readIcon" />}
     </div>
