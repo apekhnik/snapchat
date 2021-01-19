@@ -1,5 +1,6 @@
 import "./index.css";
 import React, { useEffect, useState } from "react";
+import Chat from "./Chat";
 import { Avatar } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import ChatBubbleIcon from "@material-ui/icons/ChatBubble";
@@ -28,9 +29,9 @@ const Chats = () => {
         <ChatBubbleIcon className="chats_chatIcon" />
       </div>
       <div className="chats__posts">
-        {posts.map((post) => {
-          console.log(post);
-        })}
+        {posts.map(({ id, data }) => (
+          <Chat id={id} key={id} {...data} />
+        ))}
       </div>
     </div>
   );
