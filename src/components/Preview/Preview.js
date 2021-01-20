@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { db, storage } from "../../firebase";
 import firebase from "firebase";
+import { getUser } from "../../features/appSlice";
 import {
   selectCameraImage,
   resetCameraImage,
@@ -14,6 +15,7 @@ import Footer from "./Footer";
 import RightToolbar from "./RightTollbar";
 const Preview = () => {
   const imgSrc = useSelector(selectCameraImage);
+  const { username, profilePic } = useSelector(getUser);
   const history = useHistory();
   const dispatch = useDispatch();
   const closePreview = () => {
@@ -21,15 +23,13 @@ const Preview = () => {
   };
   const sendPost = () => {
     const id = uuid();
-    const uploadTask = storage
-      .ref(`posts/${id}`)
-      .putString(imgSrc, "data_url");
+    const uploadTask = storage.ref(`posts/${id}`).putString(imgSrc, "data_url");
     uploadTask.on(
       "state_changed",
       null,
       (err) => {
         //error
-        console.log('да я ошибка')
+        console.log("да я ошибка");
         console.log(err);
       },
       () => {
@@ -41,8 +41,9 @@ const Preview = () => {
           .then((url) => {
             db.collection("posts").add({
               imageUrl: url,
-              username: "iam",
+              username: username,
               read: false,
+              profilePic,
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             });
             history.replace("/chats");

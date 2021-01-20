@@ -9,12 +9,15 @@ import { auth, db } from "../../firebase";
 import { getUser } from "../../features/appSlice";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { resetCameraImage } from "../../features/cameraSlice";
 const Chats = () => {
   const user = useSelector(getUser);
   const [posts, setPosts] = useState([]);
   const history = useHistory();
+  const dispatch = useDispatch();
   const takeSnap = () => {
-    history.replace("/");
+    dispatch(resetCameraImage());
+    history.push("/");
   };
   useEffect(() => {
     db.collection("posts")
