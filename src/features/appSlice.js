@@ -5,6 +5,10 @@ export const appSlice = createSlice({
   initialState: {
     user: null,
     selectedImage: "",
+    screenSize: {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    },
   },
   reducers: {
     selectImage: (state, action) => {
@@ -19,10 +23,20 @@ export const appSlice = createSlice({
     logout: (state) => {
       state.user = null;
     },
+    setScreenSize: (state, action) => {
+      state.screenSize = { ...action.payload };
+    },
   },
 });
 
-export const { selectImage, resetImage, login, logout } = appSlice.actions;
+export const {
+  selectImage,
+  resetImage,
+  login,
+  logout,
+  setScreenSize,
+} = appSlice.actions;
 export const getUser = (state) => state.app.user;
 export const getSelectedImage = (state) => state.app.selectedImage;
+export const getScreenSize = (state) => state.app.screenSize;
 export default appSlice.reducer;

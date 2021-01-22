@@ -7,7 +7,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import ChatBubbleIcon from "@material-ui/icons/ChatBubble";
 import { auth, db } from "../../firebase";
 import { getUser } from "../../features/appSlice";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { resetCameraImage } from "../../features/cameraSlice";
 const Chats = () => {

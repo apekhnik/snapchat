@@ -1,7 +1,5 @@
 .preview {
   position: relative;
-  margin-top: 100px;
-  border: 1px solid black;
 }
 
 .preview__close {
@@ -37,10 +35,11 @@
   transform: translate(-50%, -50%);
   justify-content: space-evenly;
   cursor: pointer;
+  font-size: 14px;
 }
 .preview__footer h3 {
   margin-right: 5px;
 }
 .preview__sendIcon {
-  font-size: 20px !important;
+  font-size: 14px !important;
 }

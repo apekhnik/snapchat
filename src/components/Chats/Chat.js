@@ -13,10 +13,10 @@ const Chat = ({ profilePic, username, read, imageUrl, timestamp, id }) => {
     <ReactTimeago date={new Date(timestamp?.toDate()).toUTCString()} />
   );
   const open = () => {
-    if (read) {
-      dispatch(selectImage(imageUrl));
+    dispatch(selectImage(imageUrl));
+    history.push("/chats/view");
+    if (!read) {
       db.collection("posts").doc(id).set({ read: true }, { merge: true });
-      history.push("/chats/view");
     }
   };
   return (
@@ -25,7 +25,7 @@ const Chat = ({ profilePic, username, read, imageUrl, timestamp, id }) => {
       <div className="chat__info">
         <h4>{username}</h4>
         <p>
-          {read && "Tap to view "}- {timeAgo}
+          {read && "Tap to view -"} {timeAgo}
         </p>
       </div>
       {!read && <StopRoundedIcon className="chat__readIcon" />}

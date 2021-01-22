@@ -7,10 +7,11 @@ import Chats from "./components/Chats/Chats";
 import Login from "./components/Login/Login ";
 import ChatView from "./components/Chats/View";
 import { useSelector, useDispatch } from "react-redux";
-import { getUser, login, logout } from "./features/appSlice";
+import { getUser, login, logout, getScreenSize } from "./features/appSlice";
 import { auth } from "./firebase";
 function App() {
   const user = useSelector(getUser);
+  const height = useSelector(getScreenSize).height;
   const dispatch = useDispatch();
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -31,7 +32,7 @@ function App() {
         {!user ? (
           <Login />
         ) : (
-          <div className="app_body">
+          <div className="app_body" style={{ paddingTop: height / 6 }}>
             <Switch>
               <Route path="/chats/view" exact component={ChatView} />
               <Route path="/chats">

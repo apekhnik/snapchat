@@ -2,7 +2,6 @@
   width: 250px;
   height: 400px;
   position: relative;
-  margin-top: 100px;
 }
 .chats__header {
   display: flex;
@@ -102,7 +101,6 @@
 .view {
   width: 250px;
   height: 400px;
-  margin-top: 100px;
   position: relative;
 }
 .view__timer {
